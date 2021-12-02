@@ -1,3 +1,7 @@
+mod input;
+mod problems;
+
 fn main() {
-    println!("Hello, world!");
+    // Problem 1
+    problems::p1_sonar_sweep::main()
 }
