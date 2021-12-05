@@ -14,4 +14,8 @@ fn main() {
     // Problem 3
     problems::p3_binary_diagnostic::main();
     println!();
+
+    // Problem 4
+    problems::p4_giant_squid::main();
+    println!();
 }

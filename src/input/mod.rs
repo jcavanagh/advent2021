@@ -24,15 +24,52 @@ pub mod p2_dive {
 pub mod p3_binary_diagnostic {
     use crate::util::util::transpose_strs;
 
+    const DATA: &str = include_str!("p3_binary_diagnostic.txt");
     pub fn rows() -> Vec<String> {
-        include_str!("p3_binary_diagnostic.txt")
+        DATA
             .split("\n")
             .map(|s| s.to_string())
             .collect()
     }
 
     pub fn cols() -> Vec<String> {
-        let lines = include_str!("p3_binary_diagnostic.txt");
-        transpose_strs(lines.split("\n").map(|l| l.to_string()).collect())
+        transpose_strs(DATA.split("\n").map(|l| l.to_string()).collect())
+    }
+}
+
+pub mod p4_giant_squid {
+    use crate::problems::p4_giant_squid::Board;
+
+    const DATA: &str = include_str!("p4_giant_squid.txt");
+    pub fn numbers() -> Vec<i32> {
+        DATA
+            .split("\n")
+            .next().unwrap()
+            .split(",")
+            .map(|s| s.parse::<i32>().unwrap())
+            .collect()
+    }
+
+    pub fn boards() -> Vec<Board> {
+        let raw_boards: Vec<&str> = DATA
+            .split("\n")
+            .skip(2)
+            .filter(|l| !l.is_empty())
+            .collect();
+
+        raw_boards.chunks(5)
+            .map(|chunk| {
+                let board_i32 = chunk.iter()
+                    .flat_map(|c|
+                        c.split(" ")
+                            .filter(|s| !s.is_empty())
+                            .map(|s| s.parse::<i32>().unwrap())
+                            .collect::<Vec<i32>>()
+                    )
+                    .collect();
+
+                Board::new(board_i32)
+            })
+            .collect()
     }
 }
