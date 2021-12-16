@@ -22,4 +22,8 @@ fn main() {
     // Problem 5
     problems::p5_hydrothermal_venture::main();
     println!();
+
+    // Problem 6
+    problems::p6_lanternfish::main();
+    println!();
 }

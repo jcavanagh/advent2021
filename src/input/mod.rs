@@ -105,3 +105,16 @@ pub mod p5_hydrothermal_venture {
         lines
     }
 }
+
+pub mod p6_lanternfish {
+    const DATA: &str = include_str!("p6_lanternfish.txt");
+
+    pub fn fish() -> Vec<i64> {
+        DATA
+            .split("\n")
+            .next().unwrap()
+            .split(",")
+            .map(|i| i.parse::<i64>().unwrap())
+            .collect()
+    }
+}
