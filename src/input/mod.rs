@@ -118,3 +118,16 @@ pub mod p6_lanternfish {
             .collect()
     }
 }
+
+pub mod p7_the_treachery_of_whales {
+    const DATA: &str = include_str!("p7_the_treachery_of_whales.txt");
+
+    pub fn data() -> Vec<i32> {
+        DATA
+            .split("\n")
+            .next().unwrap()
+            .split(",")
+            .map(|i| i.parse::<i32>().unwrap())
+            .collect()
+    }
+}

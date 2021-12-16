@@ -26,4 +26,8 @@ fn main() {
     // Problem 6
     problems::p6_lanternfish::main();
     println!();
+
+    // Problem 7
+    problems::p7_the_treachery_of_whales::main();
+    println!();
 }

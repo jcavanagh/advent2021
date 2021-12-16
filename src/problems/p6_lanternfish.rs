@@ -50,7 +50,7 @@ pub fn main() {
     let mut fish_256 = Lanternfish::new(fish());
     fish_256.advance(256);
 
-    println!("Problem 5:");
+    println!("Problem 6:");
     println!("Fish after 80 days: {}", fish_80.fish());
     println!("Fish after 256 days: {}", fish_256.fish());
 }
