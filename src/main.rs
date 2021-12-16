@@ -18,4 +18,8 @@ fn main() {
     // Problem 4
     problems::p4_giant_squid::main();
     println!();
+
+    // Problem 5
+    problems::p5_hydrothermal_venture::main();
+    println!();
 }

@@ -73,3 +73,35 @@ pub mod p4_giant_squid {
             .collect()
     }
 }
+
+pub mod p5_hydrothermal_venture {
+    use crate::problems::p5_hydrothermal_venture::Line;
+
+    const DATA: &str = include_str!("p5_hydrothermal_venture.txt");
+
+    pub fn lines() -> Vec<Line> {
+        DATA
+            .split("\n")
+            .map(|l| {
+                let mut points = l.split(" -> ");
+                let mut p1_raw = points.next().unwrap().split(",");
+                let mut p2_raw = points.next().unwrap().split(",");
+
+                Line::new(
+                    p1_raw.next().unwrap().parse::<i32>().unwrap(),
+                    p1_raw.next().unwrap().parse::<i32>().unwrap(),
+                    p2_raw.next().unwrap().parse::<i32>().unwrap(),
+                    p2_raw.next().unwrap().parse::<i32>().unwrap(),
+                )
+            })
+            .collect()
+    }
+
+    pub fn lines_simple() -> Vec<Line> {
+        let mut lines = lines();
+        lines.retain(|l|
+            l.start.x == l.end.x || l.start.y == l.end.y
+        );
+        lines
+    }
+}
